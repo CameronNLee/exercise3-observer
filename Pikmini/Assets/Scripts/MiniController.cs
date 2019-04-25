@@ -1,6 +1,11 @@
 ﻿
+using System;
+using System.Collections;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AI;
+using Debug = UnityEngine.Debug;
+using Random = UnityEngine.Random;
 
 public class MiniController : MonoBehaviour
 {
@@ -22,7 +27,30 @@ public class MiniController : MonoBehaviour
         this.GroupID = Random.Range(1, 4);
         this.PublisherManager.Register(GroupID, OnMoveMessage);
 
-        Watcher = new ColorWatcher(ColorBindings.GetGroup1Color, ChangeColor);
+        // Placeholder initialization to make compiler happy.
+        Func<Color> chosenFunction = () => new Color(0,0,0);
+        
+        // Pick a random group color assignment at Watcher initialization.
+        switch(this.GroupID)
+        {
+            case 1:
+                chosenFunction = this.ColorBindings.GetGroup1Color;
+                break;
+            
+            case 2:
+                chosenFunction = this.ColorBindings.GetGroup2Color;
+                break;
+
+            case 3:
+                chosenFunction = this.ColorBindings.GetGroup3Color;
+                break;
+            
+            default:
+                Debug.Log("Entered default case (this should not happen).");
+                break;
+        }
+        
+        Watcher = new ColorWatcher(chosenFunction, ChangeColor);
     }
 
     void Update()
