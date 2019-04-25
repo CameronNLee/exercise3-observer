@@ -14,8 +14,13 @@ public class ColorWatcher :  IWatcher
         this.CallBack = callback;
         Watch();
     }
-    public void Watch ()
+    public void Watch()
     {
-
+        this.PolledValue = this.GetColorValue();
+        if (this.PolledValue != this.Value)
+        {
+            this.Value = this.PolledValue;
+            CallBack(this.PolledValue);
+        }
     }
 }

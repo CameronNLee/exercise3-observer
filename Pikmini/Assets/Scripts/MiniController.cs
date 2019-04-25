@@ -12,6 +12,7 @@ public class MiniController : MonoBehaviour
     [SerializeField]
     private float Throttle;
     private int GroupID = 1;
+    private ColorWatcher Watcher;
     
     void Awake()
     {
@@ -20,8 +21,15 @@ public class MiniController : MonoBehaviour
         this.RandomizeThrottle();
         this.GroupID = Random.Range(1, 4);
         this.PublisherManager.Register(GroupID, OnMoveMessage);
+
+        Watcher = new ColorWatcher(ColorBindings.GetGroup1Color, ChangeColor);
     }
 
+    void Update()
+    {
+        this.Watcher.Watch();
+    }
+    
     void OnMouseDown()
     {
         this.PublisherManager.Unregister(GroupID, OnMoveMessage);
