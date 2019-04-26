@@ -17,16 +17,21 @@ public class MiniController : MonoBehaviour
     [SerializeField]
     private float Throttle;
     private int GroupID = 1;
+    
     private ColorWatcher Watcher;
+    private float ElapsedTime;
+    private float StartTime;
     
     void Awake()
     {
         this.PublisherManager = GameObject.FindGameObjectWithTag("Script Home").GetComponent<PublisherManager>();
         this.RandomizeBody();
-        this.RandomizeThrottle();
+        // this.RandomizeThrottle();
         this.GroupID = Random.Range(1, 4);
         this.PublisherManager.Register(GroupID, OnMoveMessage);
 
+        this.ElapsedTime = 0.0f;
+        this.StartTime = Time.time;
         // Placeholder initialization to make compiler happy.
         Func<Color> chosenFunction = () => new Color(0,0,0);
         
@@ -55,7 +60,16 @@ public class MiniController : MonoBehaviour
 
     void Update()
     {
-        this.Watcher.Watch();
+        if (this.ElapsedTime >= Throttle)
+        {
+            this.ElapsedTime = 0.0f;
+            this.StartTime = Time.time;
+            this.Watcher.Watch();
+        }
+        else
+        {
+            this.ElapsedTime = (Time.time - StartTime);
+        }
     }
     
     void OnMouseDown()
