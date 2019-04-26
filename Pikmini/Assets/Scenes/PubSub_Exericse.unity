@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1832,6 +1832,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1410830655}
   - component: {fileID: 1410830656}
+  - component: {fileID: 1410830657}
   m_Layer: 0
   m_Name: Spawn
   m_TagString: Untagged
@@ -1868,6 +1869,21 @@ MonoBehaviour:
   MiniPrefab: {fileID: 3227839735289969075, guid: 73476301c97159b4fbb2e7a0c50063c7,
     type: 3}
   MiniCount: 50
+--- !u!114 &1410830657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410830654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f63b8c74a284f49968f94a5ea3dbeda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MiniPrefab: {fileID: 3227839735289969075, guid: 73476301c97159b4fbb2e7a0c50063c7,
+    type: 3}
+  SpawnPoint: {fileID: 1410830654}
 --- !u!1 &1445884414
 GameObject:
   m_ObjectHideFlags: 0
