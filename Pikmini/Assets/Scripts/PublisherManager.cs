@@ -61,7 +61,5 @@ public class PublisherManager : MonoBehaviour
                 this.Group3Publisher.Unregister(callback);
                 break;
         }
-    }
-    
-    // Helper function that 
+    }    
 }
