@@ -32,6 +32,7 @@ public class MiniController : MonoBehaviour
 
         this.TimeToWatch = 0.0f;
         this.StartTime = Time.time;
+        
         // Placeholder initialization to make compiler happy.
         Func<Color> chosenFunction = () => new Color(0,0,0);
         
