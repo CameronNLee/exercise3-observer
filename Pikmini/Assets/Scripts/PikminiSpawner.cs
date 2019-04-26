@@ -19,7 +19,7 @@ namespace Pikmini
         {
             if (Input.GetButtonDown("Jump"))
             {
-                MiniPrefab = Instantiate(this.MiniPrefab, this.SpawnPoint.transform.position, Quaternion.identity);
+                Instantiate(this.MiniPrefab, this.SpawnPoint.transform.position, Quaternion.identity);
             }
         }
 
