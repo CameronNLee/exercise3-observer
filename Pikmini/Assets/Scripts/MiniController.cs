@@ -19,7 +19,7 @@ public class MiniController : MonoBehaviour
     private int GroupID = 1;
     
     private ColorWatcher Watcher;
-    private float ElapsedTime;
+    private float TimeToWatch;
     private float StartTime;
     
     void Awake()
@@ -30,7 +30,7 @@ public class MiniController : MonoBehaviour
         this.GroupID = Random.Range(1, 4);
         this.PublisherManager.Register(GroupID, OnMoveMessage);
 
-        this.ElapsedTime = 0.0f;
+        this.TimeToWatch = 0.0f;
         this.StartTime = Time.time;
         // Placeholder initialization to make compiler happy.
         Func<Color> chosenFunction = () => new Color(0,0,0);
@@ -55,20 +55,20 @@ public class MiniController : MonoBehaviour
                 break;
         }
         
-        Watcher = new ColorWatcher(chosenFunction, ChangeColor);
+        this.Watcher = new ColorWatcher(chosenFunction, ChangeColor);
     }
 
     void Update()
     {
-        if (this.ElapsedTime >= Throttle)
+        if (this.TimeToWatch >= Throttle)
         {
-            this.ElapsedTime = 0.0f;
+            this.TimeToWatch = 0.0f;
             this.StartTime = Time.time;
             this.Watcher.Watch();
         }
         else
         {
-            this.ElapsedTime = (Time.time - StartTime);
+            this.TimeToWatch = (Time.time - StartTime);
         }
     }
     
