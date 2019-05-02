@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 1478659326428584625}
   ColorBindings: {fileID: 11400000, guid: a9ae52a69f1e25e469a8b4538b96ca79, type: 2}
-  Throttle: 2.8
+  Throttle: 0
 --- !u!195 &1478659326428584625
 NavMeshAgent:
   m_ObjectHideFlags: 0

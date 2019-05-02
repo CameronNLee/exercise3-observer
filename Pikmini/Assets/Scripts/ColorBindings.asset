@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Group1Color: {r: 1, g: 0, b: 0.16862774, a: 1}
   Group2Color: {r: 0, g: 1, b: 0, a: 1}
-  Group3Color: {r: 0, g: 0, b: 1, a: 1}
+  Group3Color: {r: 0.129539, g: 0.129539, b: 0.38679248, a: 1}

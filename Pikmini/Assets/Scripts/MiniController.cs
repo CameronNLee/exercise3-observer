@@ -21,6 +21,10 @@ public class MiniController : MonoBehaviour
     private ColorWatcher Watcher;
     private float TimeToWatch;
     private float StartTime;
+
+    private float Lifespan;
+    private float DeathTimer;
+    private float StartDeathTimer;
     
     void Awake()
     {
@@ -30,8 +34,14 @@ public class MiniController : MonoBehaviour
         this.GroupID = Random.Range(1, 4);
         this.PublisherManager.Register(GroupID, OnMoveMessage);
 
+        // Used for Throttling calls to Watch().
         this.TimeToWatch = 0.0f;
         this.StartTime = Time.time;
+
+        // Assign pikmini lifespan to be between 10 and 40 seconds.
+        this.Lifespan = Random.Range(10.0f, 40.0f);
+        this.DeathTimer = 0.0f;
+        this.StartDeathTimer = Time.time;
         
         // Placeholder initialization to make compiler happy.
         Func<Color> chosenFunction = () => new Color(0,0,0);
@@ -61,6 +71,8 @@ public class MiniController : MonoBehaviour
 
     void Update()
     {
+        // Throttle value of 0.0f makes the below if-else code do stage 1.1.
+        // Otherwise the below if-else code does stage 1.2.
         if (this.TimeToWatch >= Throttle)
         {
             this.TimeToWatch = 0.0f;
@@ -71,6 +83,17 @@ public class MiniController : MonoBehaviour
         {
             this.TimeToWatch = (Time.time - StartTime);
         }
+        
+        // Determine pikmini's lifespan.
+        if (this.DeathTimer >= this.Lifespan)
+        {
+            // Then Die()
+        }
+        else
+        {
+            this.DeathTimer = (Time.time - StartDeathTimer);
+        }
+        
     }
     
     void OnMouseDown()
@@ -106,5 +129,10 @@ public class MiniController : MonoBehaviour
     public void OnMoveMessage(Vector3 destination)
     {
         agent.SetDestination(destination);
+    }
+
+    private void Death()
+    {
+        
     }
 }

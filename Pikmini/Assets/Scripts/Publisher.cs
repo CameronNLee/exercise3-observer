@@ -21,6 +21,7 @@ namespace Pikmini
 
         public void Notify(Vector3 transform)
         {
+            // Here, we invoke every notifier inside the collection with the correct argument.
             foreach (var notifier in actions)
             {
                 notifier(transform);
