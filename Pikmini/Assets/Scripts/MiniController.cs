@@ -85,16 +85,26 @@ public class MiniController : MonoBehaviour
         }
         else
         {
+            // keep incrementing the TimeToWatch up.
             this.TimeToWatch = (Time.time - StartTime);
         }
         
         // Determine pikmini's lifespan.
         if (this.DeathTimer >= this.Lifespan)
-        {
-            // Then Die()
+        {            
+            // First, unregister the pikmini.
+            this.PublisherManager.Unregister(this.GroupID, OnMoveMessage);
+            
+            // Second, invoke its death.
+            Destroy(this.gameObject);
+            
+            // Finally, reset the death timer.
+            this.DeathTimer = 0.0f;
+            this.StartDeathTimer = Time.time;
         }
         else
         {
+            // Keep incrementing the DeathTimer up.
             this.DeathTimer = (Time.time - StartDeathTimer);
         }
         
@@ -132,11 +142,9 @@ public class MiniController : MonoBehaviour
 
     public void OnMoveMessage(Vector3 destination)
     {
-        agent.SetDestination(destination);
-    }
-
-    private void Death()
-    {
-        
+        if(agent != null)
+        {
+            agent.SetDestination(destination);
+        }
     }
 }

@@ -9,6 +9,11 @@ namespace Pikmini
         [SerializeField] 
         private GameObject SpawnPoint;
 
+        private void Start()
+        {
+            
+        }
+
         private void Update()
         {
             if (Input.GetButtonDown("Jump"))
