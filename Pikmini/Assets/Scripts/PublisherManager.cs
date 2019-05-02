@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using Pikmini;
-// change name to Publisher Manager
+
 public class PublisherManager : MonoBehaviour
 {
     public int GroupCount { get; } = 3;

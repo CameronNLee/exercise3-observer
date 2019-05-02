@@ -11,9 +11,14 @@ public class MiniController : MonoBehaviour
 {
     [SerializeField]
     private NavMeshAgent agent;
+    
     [SerializeField]
     private ColorBind ColorBindings;
     private PublisherManager PublisherManager;
+    
+    // Note: this project does not make use of RandomizeThrottle() and instead
+    // only uses the SerializeField to set the Throttle.
+    // According to the TA on piazza cid=44, either implementation is fine.
     [SerializeField]
     private float Throttle;
     private int GroupID = 1;
@@ -30,7 +35,6 @@ public class MiniController : MonoBehaviour
     {
         this.PublisherManager = GameObject.FindGameObjectWithTag("Script Home").GetComponent<PublisherManager>();
         this.RandomizeBody();
-        // this.RandomizeThrottle();
         this.GroupID = Random.Range(1, 4);
         this.PublisherManager.Register(GroupID, OnMoveMessage);
 

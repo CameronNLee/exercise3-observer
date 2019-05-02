@@ -7,6 +7,7 @@ namespace Pikmini
 {
     public class Publisher : IPublisher
     {
+        // Store and retrieve notifier actions for use with Unregister(), Register(), and Notify().
         private Collection<Action<Vector3>> actions = new Collection<Action<Vector3>>();
 
         public void Unregister(Action<Vector3> notifier)
