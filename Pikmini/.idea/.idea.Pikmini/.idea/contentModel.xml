@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Owner\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Owner\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Pikmini.509196503.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Owner\RiderProjects\exercise3-observer-cmnlee\Pikmini" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="ButtonManager.cs" t="Include" />
+          <e p="ColorBind.cs" t="Include" />
+          <e p="ColorWatcher.cs" t="Include" />
+          <e p="GenerateMinis.cs" t="Include" />
+          <e p="IPublisher.cs" t="Include" />
+          <e p="IWatcher.cs" t="Include" />
+          <e p="MiniController.cs" t="Include" />
+          <e p="PikminiSpawner.cs" t="Include" />
+          <e p="Publisher.cs" t="Include" />
+          <e p="PublisherManager.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Pikmini.sln" t="IncludeFlat" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
